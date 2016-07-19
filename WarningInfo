@@ -1,0 +1,43 @@
+package autoMationBNSTest.autoMationBNSTest.entity;
+
+
+public class WarningInfo
+{
+    private int WarningCode;
+	
+    private String WarningMessage;
+    
+
+    public WarningInfo() {
+		super();
+	}
+
+
+	public int getWarningCode() {
+		return WarningCode;
+	}
+
+
+	public void setWarningCode(int warningCode) {
+		WarningCode = warningCode;
+	}
+
+
+	public String getWarningMessage() {
+		return WarningMessage;
+	}
+
+
+	public void setWarningMessage(String warningMessage) {
+		WarningMessage = warningMessage;
+	}
+
+
+	@Override
+	public String toString() {
+		return "WarningInfo [WarningCode=" + WarningCode + ", WarningMessage=" + WarningMessage + "]";
+	}
+
+    
+    
+}
