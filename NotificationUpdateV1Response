@@ -1,0 +1,52 @@
+package autoMationBNSTest.autoMationBNSTest.entity;
+
+import java.util.List;
+
+
+public class NotificationUpdateV1Response {
+	
+	    private boolean success = false;
+
+	    private List<WarningInfo> warnings;
+
+	    private ErrorInfo error;
+
+	    public List<WarningInfo> getWarnings()
+	    {
+	        return this.warnings;
+	    }
+
+	    public void setWarnings(List<WarningInfo> warnings)
+	    {
+	        this.warnings = warnings;
+	    }
+
+	    public ErrorInfo getError()
+	    {
+	        return error;
+	    }
+
+	    public void setError(ErrorInfo error)
+	    {
+	        this.error = error;
+	    }
+
+	    public boolean isSuccess()
+	    {
+	        return success;
+	    }
+
+	    public void setSuccess(boolean success)
+	    {
+	        this.success = success;
+	    }
+
+		@Override
+		public String toString() {
+			return "NotificationUpdateV1Response [success=" + success + ", warnings=" + warnings + ", error=" + error
+					+ "]";
+		}
+		
+	    
+
+}
