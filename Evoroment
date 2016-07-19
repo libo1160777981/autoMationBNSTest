@@ -1,0 +1,19 @@
+package autoMationBNSTest.autoMationBNSTest.entity;
+
+public class Evoroment {
+	
+	private String value;
+
+	public Evoroment(String value) {
+		super();
+		this.value = value;
+	}
+
+	@Override
+	public String toString() {
+		return  value;
+	}
+	
+	
+
+}
