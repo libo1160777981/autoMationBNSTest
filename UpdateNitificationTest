@@ -1,0 +1,141 @@
+package autoMationBNSTest.autoMationBNSTest;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.UnsupportedEncodingException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.sql.CallableStatement;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.sql.DataSource;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpHeaders;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpPut;
+import org.apache.http.client.utils.URIBuilder;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.CallableStatementCallback;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.simple.SimpleJdbcCall;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONReader;
+
+import autoMationBNSTest.autoMationBNSTest.entity.Evoroment;
+import autoMationBNSTest.autoMationBNSTest.entity.NotificationUpdateV1Response;
+import autoMationBNSTest.autoMationBNSTest.util.StandaloneDataConfig;
+
+@RunWith(SpringRunner.class)
+@ContextConfiguration(classes = StandaloneDataConfig.class)
+public class UpdateNitificationTest{
+	
+	JSONReader reader;
+	HttpPut httpPut;
+	CloseableHttpClient httpclient;
+	
+	@Autowired
+	private Evoroment evoroment;
+	@Autowired
+	private DataSource dataSource;
+	
+	@Before
+	public void startup() throws Exception{
+		reader = new JSONReader(new FileReader("source/NotificationUpdateV1Request.json"));
+		httpclient = HttpClients.createDefault();
+		seturl(161170,43338);
+		setHead();
+		setBody("aaa");
+	}
+
+	@Test
+	public void test001() throws Exception {
+		SimpleJdbcCall simpleJdbcCall = new SimpleJdbcCall(dataSource).withProcedureName("NotificationDeliveryActiveSetStatus#14");
+		
+		String query = "exec NotificationDeliveryActiveSetStatus#14 43338 ,2,'Unsent','No Error test1','',0,null";
+		simpleJdbcCall.execute(query);
+		
+		CloseableHttpResponse response = httpclient.execute(httpPut);
+		
+		try {
+			HttpEntity entity = response.getEntity();
+			String entityString = EntityUtils.toString(entity);
+			NotificationUpdateV1Response date = JSON.parseObject(entityString, NotificationUpdateV1Response.class);
+			Assert.assertEquals("NotificationStatus of this delivery in DB already in a final status, update is reject.", date.getError().getErrorMessage());
+			Assert.assertEquals(5619,date.getError().getErrorCode());
+		} finally {
+			response.close();
+		}
+		
+	}
+	
+	@Test
+	public void test002() throws Exception {
+		SimpleJdbcCall simpleJdbcCall = new SimpleJdbcCall(dataSource).withProcedureName("NotificationDeliveryActiveSetStatus#14");
+		Map<String, Object> parameters = new HashMap<String, Object>(2);
+        parameters.put("@pNotificationDeliveryID", 43337);
+        parameters.put("@pDeliveryStatusCode", 1);
+        parameters.put("@pNotificationMethodProviderRefNbr", "Unsent");
+        parameters.put("@pNotificationClientErrorText", "No Error test1");
+        parameters.put("@pNotificationErrorKey", " ");
+        parameters.put("@pNotificationRetryCount", 0);
+        parameters.put("@pDeliveryStatusCodeCurrent", null);
+        simpleJdbcCall.execute(parameters);
+		
+			
+		
+		/*CloseableHttpResponse response = httpclient.execute(httpPut);
+		
+		try {
+			HttpEntity entity = response.getEntity();
+			String entityString = EntityUtils.toString(entity);
+			NotificationUpdateV1Response date = JSON.parseObject(entityString, NotificationUpdateV1Response.class);
+			Assert.assertEquals("NotificationStatus of this delivery in DB already in a final status, update is reject.", date.getError().getErrorMessage());
+			Assert.assertEquals(5619,date.getError().getErrorCode());
+		} finally {
+			response.close();
+		}*/
+		
+	}
+
+
+	private void seturl(int notifications,int notificationdeliveries) throws URISyntaxException{
+		URI uri = new URIBuilder()
+		        .setScheme("http")
+		        .setHost(evoroment.toString())
+		        .setPath("/bns/v1/notifications/"+notifications+"/notificationdeliveries/"+notificationdeliveries)
+		        .build();
+		httpPut = new HttpPut(uri);
+	}
+	
+	private void setHead(){
+		httpPut.setHeader("Client-ID","EPS");
+		httpPut.setHeader(HttpHeaders.CONTENT_TYPE,"application/json");
+		httpPut.setHeader(HttpHeaders.ACCEPT_ENCODING,"gzip,deflate");
+		httpPut.setHeader(HttpHeaders.CONNECTION,"Keep-Alive");
+		httpPut.setHeader(HttpHeaders.USER_AGENT,"Apache-HttpClient/4.1.1 (java 1.5)");
+	}
+	
+	private void setBody(String key) throws UnsupportedEncodingException{
+		String str = reader.readObject(Map.class).get(key).toString();
+		StringEntity stringEntity = new StringEntity(str);
+		httpPut.setEntity(stringEntity);
+	}
+
+	
+	
+}
