@@ -24,9 +24,9 @@ public abstract class StandaloneDataConfig {
 		switch (DATASOURCE){
 			case 0:
 				dataSource.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-				dataSource.setUrl("jdbc:sqlserver://notification.db.LISQA7.sb.karmalab.net;database=Notification");
+				dataSource.setUrl("jdbc:sqlserver://***;database=Notification");
 				dataSource.setUsername("louli");
-				dataSource.setPassword("1qaz@WSX3edc$RFV");
+				dataSource.setPassword("***");
 				break;
 		}
 		
@@ -43,7 +43,7 @@ public abstract class StandaloneDataConfig {
 				voroment = new Evoroment("127.0.0.1:8888");
 				break;
 			case 1:
-				voroment = new Evoroment("louli.ngrok.io");
+				voroment = new Evoroment("**.ngrok.io");
 				break;
 		}
 		return voroment;
