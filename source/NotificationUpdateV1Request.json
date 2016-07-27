@@ -1,0 +1,44 @@
+{
+	"default": {
+		"NotificationStatus": "Confirmed",
+		"NotificationProviderErrorMsg": "n ",
+		"NotificationProviderDeliveryId": "1",
+		"NotificationProviderErrorKey": 11,
+		"RetryCount": "1"
+	},
+	"toFailToFax": {
+		"NotificationStatus": "FailToFax",
+		"NotificationProviderErrorMsg": "n ",
+		"NotificationProviderDeliveryId": "1",
+		"NotificationProviderErrorKey": 11,
+		"RetryCount": "1"
+	},
+	"toTransitToFax": {
+		"NotificationStatus": "TransitToFax",
+		"NotificationProviderErrorMsg": "n ",
+		"NotificationProviderDeliveryId": "1",
+		"NotificationProviderErrorKey": 11,
+		"RetryCount": "1"
+	},
+	"toInQueue": {
+		"NotificationStatus": "InQueue",
+		"NotificationProviderErrorMsg": "",
+		"NotificationProviderDeliveryId": "",
+		"NotificationProviderErrorKey": 11,
+		"RetryCount": "1"
+	},
+	"toConfirmed": {
+		"NotificationStatus": "Confirmed",
+		"NotificationProviderErrorMsg": "",
+		"NotificationProviderDeliveryId": "",
+		"NotificationProviderErrorKey": 11,
+		"RetryCount": "1"
+	},
+	"toPending": {
+		"NotificationStatus": "Pending",
+		"NotificationProviderErrorMsg": "1",
+		"NotificationProviderDeliveryId": "1",
+		"NotificationProviderErrorKey": 11,
+		"RetryCount": "1"
+	}
+}

@@ -1,0 +1,59 @@
+{
+	"0001": {
+		"TPID": 10,
+		"UserID": 33,
+		"NotificationInfo": {
+			"NotificationReportType": "HotelBookingCancel",
+			"TravelServiceProviderID": 63,
+			"NotificationContextID": 4669632,
+			"ContextData": "5|3502|12856362|1|0|1|0| | |0|0",
+			"ExpireDate": "2015-12-02",
+			"IsSaveData": false,
+			"UseBeginDate": "2015-11-04",
+			"BookingItemID": 12938974,
+			"NotificationVersion": 2,
+			"NotificationScheduleType": "Automatic",
+			"IsValidSUCCTransaction": true,
+			"EncryptedCardNumber": "12"
+		},
+		"NotificationContactList": [
+			{
+				"NotificationVehicleType": "NewTrade",
+				"NotificationMethodType": "Electronic",
+				"ContactName": true,
+				"Address": "TestAddress",
+				"ExpirationMinCnt": 180
+			}
+		],
+		"ContentXML": "<Notification type='BillingChange'></Notification>"
+	},
+	"existNotificationIDOriginal": {
+		"TPID": 10,
+		"UserID": 33,
+		"NotificationInfo": {
+			"NotificationIDOriginal": 1230,
+			"NotificationReportType": "HotelBookingCancel",
+			"TravelServiceProviderID": 63,
+			"NotificationContextID": 4669632,
+			"ContextData": "5|3502|12856362|1|0|1|0| | |0|0",
+			"ExpireDate": "2015-12-02",
+			"IsSaveData": false,
+			"UseBeginDate": "2015-11-04",
+			"BookingItemID": 12938974,
+			"NotificationVersion": 2,
+			"NotificationScheduleType": "Automatic",
+			"IsValidSUCCTransaction": true,
+			"EncryptedCardNumber": "12"
+		},
+		"NotificationContactList": [
+			{
+				"NotificationVehicleType": "NewTrade",
+				"NotificationMethodType": "Electronic",
+				"ContactName": true,
+				"Address": "TestAddress",
+				"ExpirationMinCnt": 180
+			}
+		],
+		"ContentXML": "<Notification type='BillingChange'></Notification>"
+	}
+}

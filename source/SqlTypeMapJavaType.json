@@ -1,0 +1,27 @@
+{
+	"sqlserver": {
+		"bigint": "long",
+		"timestamp":"byte[]",
+		"binary":"byte[]",
+		"uniqueidentifier":"byte[]",
+		"bit":"boolean",
+		"charnchar":"String",
+		"decimal":"BigDecimal",
+		"smallmoney":"BigDecimal",
+		"money":"BigDecimal",
+		"float":"double",
+		"int":"int",
+		"image":"byte[]",
+		"text":"String",
+		"ntext":"String",
+		"numeric":"BigDecimal",
+		"real":"float",
+		"smallint":"short",
+		"tinyint":"short",
+		"datetime":"Timestamp",
+		"smalldatetime":"Timestamp",
+		"varbinary":"byte[]",
+		"varchar":"String",
+		"nvarchar":"String"
+	}
+}

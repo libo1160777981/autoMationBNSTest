@@ -1,0 +1,42 @@
+{
+	"default": {
+		"NotificationStatus": "UnSent",
+		"NotificationDeliveryMethod": "Fax,Electronic,Insurance,XOAFax,XOAEmail",
+		"TravelServiceProviderID": "0,22,23,24",
+		"TPIDs": [333,336]
+	},
+	"noNotificationStatus": {
+		"NotificationDeliveryMethod": "Fax,Electronic,Insurance,XOAFax,XOAEmail",
+		"TravelServiceProviderID": "0,22,23,24",
+		"TPIDs": [333,336]
+	},
+	"emptyNotificationStatus": {
+		"NotificationStatus": "",
+		"NotificationDeliveryMethod": "Fax,Electronic,Insurance,XOAFax,XOAEmail",
+		"TravelServiceProviderID": "0,22,23,24",
+		"TPIDs": [333,336]
+	},
+	"blankNotificationStatus": {
+		"NotificationStatus": " ",
+		"NotificationDeliveryMethod": "Fax,Electronic,Insurance,XOAFax,XOAEmail",
+		"TravelServiceProviderID": "0,22,23,24",
+		"TPIDs": [333,336]
+	},
+	"noNotificationDeliveryMethod": {
+		"NotificationStatus": "UnSent",
+		"TravelServiceProviderID": "0,22,23,24",
+		"TPIDs": [333,336]
+	},
+	"emptyNotificationDeliveryMethod": {
+		"NotificationStatus": "UnSent",
+		"NotificationDeliveryMethod": "",
+		"TravelServiceProviderID": "0,22,23,24",
+		"TPIDs": [333,336]
+	},
+	"blankNotificationDeliveryMethod": {
+		"NotificationStatus": "UnSent",
+		"NotificationDeliveryMethod": " ",
+		"TravelServiceProviderID": "0,22,23,24",
+		"TPIDs": [333,336]
+	}
+}
