@@ -25,7 +25,7 @@ public abstract class StandaloneDataConfig {
 			case 0:
 				dataSource.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 				dataSource.setUrl("jdbc:sqlserver://***;database=Notification");
-				dataSource.setUsername("louli");
+				dataSource.setUsername("***");
 				dataSource.setPassword("***");
 				break;
 		}
